@@ -18,3 +18,16 @@ const Route = use('Route')
 Route.get('/', ({ request }) => {
   return { greeting: 'Hello world in JSON' }
 })
+
+//Teachers
+
+Route.get('Teachers','TeacherController.index')
+Route.get('Teachers/:id','TeacherController.show')
+Route.post('Teachers','TeacherController.create')
+Route.put('Teachers/:id','TeacherController.update')
+Route.delete('Teachers/:id','TeacherController.delete')
+
+
+
+
+
