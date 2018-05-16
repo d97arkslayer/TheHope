@@ -5,19 +5,14 @@ class TeacherController {
   async index ({response}) {
     const teachers=await Teacher.all()
 
-    response.status(200).json({
-      data:teachers
-    })
+    response.status(200).json(teachers)
   }
 
   async create ({response,request}) {
     const {name,lastName}=request.post()
 
     const teacher= await Teacher.create({name,lastName})
-    response.status(201).json({
-      message:'Teacher created',
-      data:teacher
-    })
+    response.status(201).json(teacher)
   }
 
   
@@ -26,10 +21,7 @@ class TeacherController {
     const teacher=await Teacher.find(id)
 
     if(teacher){
-        response.status(200).json({
-          message:'here is teacher',
-          data:teacher
-        })
+        response.status(200).json(teacher)
     }else{
       response.status(404).json({
         message:'teacher not found'
@@ -48,10 +40,7 @@ class TeacherController {
 
       await teacher.save()
       
-      response.status(200).json({
-        message:'Teacher updated',
-        data:teacher
-    })
+      response.status(200).json(teacher)
     }else{
       response.status(404).json({
         message:'Teacher not found'
