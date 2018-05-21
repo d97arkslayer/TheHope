@@ -19,8 +19,4 @@ Route.get('/', ({ request }) => {
     return { greeting: 'Hello world in JSON' }
 })
 
-Route.get('students', 'StudentController.index')
-Route.get('students/:id', 'StudentController.show')
-Route.post('students', 'StudentController.store')
-Route.patch('students/:id', 'StudentController.update')
-Route.delete('students/:id', 'StudentController.destroy')
+Route.resource('students', 'StudentController').apiOnly()
