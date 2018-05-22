@@ -20,3 +20,12 @@ Route.get('/', ({ request }) => {
 })
 
 Route.resource('students', 'StudentController').apiOnly()
+Route.get('book','BookController.index')
+
+Route.post('book','BookController.store')
+
+Route.get('book/:id','BookController.show')
+
+Route.put('book/:id','BookController.update')
+
+Route.delete('book/:id','BookController.destroy')
