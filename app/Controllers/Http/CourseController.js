@@ -23,8 +23,8 @@ class CourseController {
 
         const course = await Course.find(id)
         if (course) {
-            console.log(course)
-            const grade = await Grade.find(course.grade_id)
+            const grade = await course.grade().fetch()
+            console.log(grade)
             response.status(200).json({
                 message: 'Here is your course.',
                 data: grade.name + ' ' + course.name
