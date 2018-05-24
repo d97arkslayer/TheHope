@@ -19,26 +19,20 @@ Route.get('/', ({ request }) => {
     return { greeting: 'Hello world in JSON' }
 })
 
-//Parents
 
-Route.get('Parents', 'ParentController.index')
-Route.get('Parents/:id', 'ParentController.show')
-Route.post('Parents', 'ParentController.create')
-Route.put('Parents/:id', 'ParentController.update')
-Route.delete('Parents/:id', 'ParentController.delete')
+//Students 
 Route.resource('students', 'StudentController').apiOnly()
 
-//Books
-Route.get('book', 'BookController.index')
-Route.post('book', 'BookController.store')
-Route.get('book/:id', 'BookController.show')
-Route.put('book/:id', 'BookController.update')
-Route.delete('book/:id', 'BookController.destroy')
+
+
 
 //Teachers
+Route.resource('teachers', 'TeacherController').apiOnly()
 
+/*
 Route.get('Teachers', 'TeacherController.index')
 Route.get('Teachers/:id', 'TeacherController.show')
 Route.post('Teachers', 'TeacherController.create')
 Route.put('Teachers/:id', 'TeacherController.update')
 Route.delete('Teachers/:id', 'TeacherController.delete')
+*/
