@@ -22,12 +22,12 @@ Route.get('/', ({ request }) => {
 
 //Students 
 Route.resource('students', 'StudentController').apiOnly()
-
-
-
-
-//Teachers
+    //Teachers
 Route.resource('teachers', 'TeacherController').apiOnly()
+    //Grades
+Route.resource('grades', 'GradeController').apiOnly()
+    //Students
+Route.resource('grades/:id/courses', 'CourseController').apiOnly()
 
 /*
 Route.get('Teachers', 'TeacherController.index')
