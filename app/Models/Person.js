@@ -6,6 +6,10 @@ class Person extends Model {
     teacher() {
         return this.hasOne('App/Models/Teacher')
     }
+    static get table() {
+        return 'persons'
+    }
+
 }
 
 module.exports = Person
