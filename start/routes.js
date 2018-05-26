@@ -28,6 +28,8 @@ Route.resource('teachers', 'TeacherController').apiOnly()
 Route.resource('grades', 'GradeController').apiOnly()
     //Students
 Route.resource('grades/:id/courses', 'CourseController').apiOnly()
+    //Subjects 
+Route.resource('subjects', "SubjectController").apiOnly()
 
 /*
 Route.get('Teachers', 'TeacherController.index')

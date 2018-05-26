@@ -22,7 +22,6 @@ class StudentController {
     }
 
     async show({ response, params: { id } }) {
-
         const student = await Student.find(id)
         if (student) {
             response.status(200).json({
@@ -35,8 +34,6 @@ class StudentController {
                 data: id
             })
         }
-
-
     }
 
     async edit() {}

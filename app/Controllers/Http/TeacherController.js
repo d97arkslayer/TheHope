@@ -17,7 +17,7 @@ class TeacherController {
         const person = await Person.create({ name, lastName, documentNumber, email, password })
         const person_id = person.id
         const teacher = await Teacher.create({ person_id })
-        console.log(teacher.toJSON())
+            //console.log(teacher.toJSON())
         response.status(201).json(teacher)
     }
 
