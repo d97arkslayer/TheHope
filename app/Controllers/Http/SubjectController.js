@@ -44,7 +44,7 @@ class SubjectController {
             subject.name = name
             await subject.save()
             response.status(200).json({
-                message: 'Successfully updated this student.',
+                message: 'Successfully updated this subject.',
                 data: subject
             })
         } else {

@@ -12,6 +12,12 @@ class SubjectGrade extends Model {
     lessons() {
         return this.hasMany('App/Models/Lesson')
     }
+    grades() {
+        return this.belongsTo('App/Models/Grades')
+    }
+    static get table() {
+        return 'subject_grades'
+    }
 }
 
 module.exports = SubjectGrade
