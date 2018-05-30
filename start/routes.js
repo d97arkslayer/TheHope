@@ -27,13 +27,15 @@ Route.resource('teachers', 'TeacherController').apiOnly()
     //Grades
 Route.resource('grades', 'GradeController').apiOnly()
     //Students
-Route.resource('grades/:id/courses', 'CourseController').apiOnly()
+Route.resource('courses', 'CourseController').apiOnly()
     //Subjects 
 Route.resource('subjects', 'SubjectController').apiOnly()
     //Subject for grade
 Route.resource('subjectGrades', 'SubjectGradeController').apiOnly()
     //Lessons
 Route.resource('lessons', 'LessonController').apiOnly()
+    //Classes
+Route.resource('classes', 'ClassController').apiOnly()
     /*
     Route.get('Teachers', 'TeacherController.index')
     Route.get('Teachers/:id', 'TeacherController.show')

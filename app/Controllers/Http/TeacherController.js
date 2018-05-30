@@ -26,7 +26,7 @@ class TeacherController {
 
         const teacher = await Teacher.find(id)
         const person_id = teacher.person_id
-        console.log(person_id)
+            //console.log(person_id)
         const person = await Person.find(person_id)
         response.status(200).json(person)
 
