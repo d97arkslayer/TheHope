@@ -29,14 +29,15 @@ Route.resource('grades', 'GradeController').apiOnly()
     //Students
 Route.resource('grades/:id/courses', 'CourseController').apiOnly()
     //Subjects 
-Route.resource('subjects', "SubjectController").apiOnly()
+Route.resource('subjects', 'SubjectController').apiOnly()
     //Subject for grade
-Route.resource('subjectGrades', "SubjectGradeController").apiOnly()
-
-/*
-Route.get('Teachers', 'TeacherController.index')
-Route.get('Teachers/:id', 'TeacherController.show')
-Route.post('Teachers', 'TeacherController.create')
-Route.put('Teachers/:id', 'TeacherController.update')
-Route.delete('Teachers/:id', 'TeacherController.delete')
-*/
+Route.resource('subjectGrades', 'SubjectGradeController').apiOnly()
+    //Lessons
+Route.resource('lessons', 'LessonController').apiOnly()
+    /*
+    Route.get('Teachers', 'TeacherController.index')
+    Route.get('Teachers/:id', 'TeacherController.show')
+    Route.post('Teachers', 'TeacherController.create')
+    Route.put('Teachers/:id', 'TeacherController.update')
+    Route.delete('Teachers/:id', 'TeacherController.delete')
+    */

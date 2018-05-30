@@ -4,7 +4,7 @@ const Model = use('Model')
 
 class Lesson extends Model {
     subjectGrade() {
-        return this, belongsTo('App/Models/SubjectGrade')
+        return this.belongsTo('App/Models/SubjectGrade')
     }
 }
 

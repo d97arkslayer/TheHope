@@ -5,10 +5,7 @@ const Subject = use('App/Models/Subject')
 class SubjectGradeController {
     async index({ response }) {
         const subjectGrades = await SubjectGrade.all()
-        response.status(200).json({
-            message: "Here are yours Subjects for grade",
-            data: subjectGrades
-        })
+        response.status(200).json(subjectGrades)
     }
 
     async create() {}
@@ -29,15 +26,15 @@ class SubjectGradeController {
     }
 
     async show({ response, params: id }) {
-        const subjectGrade = await SubjectGrade.find(id)
+        const subjectGrade = await SubjectGrade.find(id.id)
         if (subjectGrade) {
             const grade_id = subjectGrade.grade_id
             const subject_id = subjectGrade.subject_id
             const grade = await Grade.find(grade_id)
             const subject = await Subject.find(subject_id)
             response.status(200).json({
-                message: 'Here is your subject for grade.',
-                data: subjectGrade
+                'grade': grade.name,
+                'Subject': subject.name
             })
         } else {
             response.status(404).json({
