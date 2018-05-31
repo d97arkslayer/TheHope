@@ -4,7 +4,7 @@ const Grade = use('App/Models/Grade')
 class CourseController {
     async index({ response }) {
         //const courses = await Course.query().where('grade_id', id).select()
-        const courses = await Course.all()
+        const courses = await Course.query().with('grade').fetch()
         response.status(200).json(courses)
     }
 
