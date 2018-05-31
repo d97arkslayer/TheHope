@@ -18,11 +18,11 @@ class CourseController {
 
     async show({ response, params: { id } }) {
 
-        const course = await Course.find(id)
+        const course = await Course.query().with('grade').where('id', id).fetch()
         if (course) {
-            const grade = await course.grade().fetch()
-                //console.log(grade)
-            response.status(200).json(grade.name + ' ' + course.name)
+            //const grade = await course.grade().fetch()
+            //console.log(grade)
+            response.status(200).json(course)
         } else {
             response.status(404).json(id)
         }
