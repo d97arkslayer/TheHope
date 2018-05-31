@@ -1,5 +1,7 @@
 'use strict'
 const Task = use('App/Models/Task')
+const Helpers = use('Helpers')
+const Resource = use('App/Models/Resource')
 class TaskController {
     async index({ response }) {
         const tasks = await Task.all()
@@ -11,6 +13,17 @@ class TaskController {
     async store({ request, response, params: { id } }) {
         const { class_id, title, description, limitDate } = request.post()
         const task = await Task.create({ class_id, title, description, limitDate })
+        console.log(request.file('file'))
+        if (request.file('file')) {
+
+            const myFile = request.file('file')
+            const name = new Date().getTime + '.' + myFile.subtype
+            const task_id = task.id
+            const resource = await Resource.create({ name, task_id })
+            await myFile.move(Helpers.publicPath('uploads/tasks'), {
+                'name': name
+            })
+        }
         response.status(201).json(task)
     }
 

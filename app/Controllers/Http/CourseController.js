@@ -22,7 +22,7 @@ class CourseController {
         if (course) {
             const grade = await course.grade().fetch()
                 //console.log(grade)
-            response.status(200).json(course)
+            response.status(200).json(grade.name + ' ' + course.name)
         } else {
             response.status(404).json(id)
         }
