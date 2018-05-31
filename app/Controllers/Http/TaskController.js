@@ -19,7 +19,7 @@ class TaskController {
         if (task) {
             response.status(201).json(task)
         } else {
-            response.status(404)
+            response.status(404).json(id)
         }
     }
 
@@ -35,7 +35,7 @@ class TaskController {
             await task.save()
             response.status(201).json(task)
         } else {
-            response.status(404)
+            response.status(404).json(id)
         }
     }
 

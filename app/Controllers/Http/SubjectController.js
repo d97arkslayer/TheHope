@@ -3,10 +3,7 @@ const Subject = use('App/Models/Subject')
 class SubjectController {
     async index({ response }) {
         const subjects = await Subject.all()
-        response.status(200).json({
-            message: 'Here are your subjects.',
-            data: subjects
-        })
+        response.status(200).json(subjects)
     }
 
     async create() {}
@@ -14,24 +11,15 @@ class SubjectController {
     async store({ request, response, params: { id } }) {
         const { name } = request.post()
         const subject = await Subject.create({ name })
-        response.status(201).json({
-            message: 'Successfully created a new Subject.',
-            data: subject
-        })
+        response.status(201).json(subject)
     }
 
     async show({ response, params: { id } }) {
         const subject = await Subject.find(id)
         if (subject) {
-            response.status(200).json({
-                message: 'Here is your subject.',
-                data: subject
-            })
+            response.status(200).json(subject)
         } else {
-            response.status(404).json({
-                message: 'Subject not found.',
-                data: id
-            })
+            response.status(404).json(id)
         }
     }
 
@@ -43,15 +31,9 @@ class SubjectController {
             const { name } = request.post()
             subject.name = name
             await subject.save()
-            response.status(200).json({
-                message: 'Successfully updated this subject.',
-                data: subject
-            })
+            response.status(200).json(subject)
         } else {
-            response.status(200).json({
-                message: 'Subject not found.',
-                id
-            })
+            response.status(404).json(id)
         }
     }
 
@@ -59,15 +41,9 @@ class SubjectController {
         const subject = await Subject.find(id)
         if (subject) {
             await subject.delete()
-            response.status(200).json({
-                message: 'Successfully deleted this subject.',
-                id
-            })
+            response.status(200).json(id)
         } else {
-            response.status(200).json({
-                message: 'subject not found.',
-                id
-            })
+            response.status(404).json(id)
         }
     }
 }

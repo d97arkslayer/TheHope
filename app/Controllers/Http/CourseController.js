@@ -24,7 +24,7 @@ class CourseController {
                 //console.log(grade)
             response.status(200).json(course)
         } else {
-            response.status(404)
+            response.status(404).json(id)
         }
 
 
@@ -39,7 +39,7 @@ class CourseController {
             await course.save()
             response.status(200).json(course)
         } else {
-            response.status(200)
+            response.status(404).json(id)
         }
     }
 
@@ -50,7 +50,7 @@ class CourseController {
             await course.delete()
             response.status(200).json(id)
         } else {
-            response.status(404)
+            response.status(404).json(id)
         }
     }
 }

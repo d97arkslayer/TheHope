@@ -19,7 +19,7 @@ class ClassController {
         if (classV) {
             response.status(201).json(classV)
         } else {
-            response.status(404)
+            response.status(404).json(id)
         }
     }
 
@@ -33,7 +33,7 @@ class ClassController {
             await classV.save()
             response.status(200).json(classV)
         } else {
-            response.status(404)
+            response.status(404).json(id)
         }
     }
 
@@ -43,7 +43,7 @@ class ClassController {
             await classV.delete()
             response.status(200)
         } else {
-            response.status(404)
+            response.status(404).json(id)
         }
     }
 }

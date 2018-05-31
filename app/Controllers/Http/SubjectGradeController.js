@@ -17,10 +17,7 @@ class SubjectGradeController {
             const subject = Subject.find(subject_id)
             if (subject) {
                 const subjectGrade = await SubjectGrade.create({ grade_id, subject_id })
-                response.status(201).json({
-                    message: 'Successfully created a new Subject.',
-                    data: subjectGrade
-                })
+                response.status(201).json(data)
             }
         }
     }
@@ -37,10 +34,7 @@ class SubjectGradeController {
                 'Subject': subject.name
             })
         } else {
-            response.status(404).json({
-                message: 'Subject for grade not found.',
-                data: id
-            })
+            response.status(404).json(id)
         }
     }
 
@@ -52,15 +46,9 @@ class SubjectGradeController {
         const subjectGrade = await SubjectGrade.find(id)
         if (subjectGrade) {
             await subjectGrade.delete()
-            response.status(200).json({
-                message: 'Successfully deleted this Subject for the grade.',
-                id
-            })
+            response.status(200).json(id)
         } else {
-            response.status(200).json({
-                message: 'Subject for grade not found.',
-                id
-            })
+            response.status(404).json(id)
         }
     }
 }

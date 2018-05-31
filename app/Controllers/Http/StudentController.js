@@ -4,10 +4,7 @@ class StudentController {
     async index({ response }) {
         const students = await Student.all()
 
-        response.status(200).json({
-            message: 'Here are your students.',
-            data: students
-        })
+        response.status(200).json(students)
     }
 
     async create() {}
@@ -15,24 +12,15 @@ class StudentController {
     async store({ request, response, params: { id } }) {
         const { name, document, age, email } = request.post()
         const student = await Student.create({ name, document, age, email })
-        response.status(201).json({
-            message: 'Successfully created a new Student.',
-            data: student
-        })
+        response.status(201).json(student)
     }
 
     async show({ response, params: { id } }) {
         const student = await Student.find(id)
         if (student) {
-            response.status(200).json({
-                message: 'Here is your student.',
-                data: student
-            })
+            response.status(200).json(student)
         } else {
-            response.status(404).json({
-                message: 'Student not found.',
-                data: id
-            })
+            response.status(404).json(id)
         }
     }
 
@@ -47,15 +35,9 @@ class StudentController {
             student.age = age
             student.email = email
             await student.save()
-            response.status(200).json({
-                message: 'Successfully updated this student.',
-                data: student
-            })
+            response.status(200).json(student)
         } else {
-            response.status(200).json({
-                message: 'Student not found.',
-                id
-            })
+            response.status(404).json(id)
         }
     }
 
@@ -63,15 +45,9 @@ class StudentController {
         const student = await Student.find(id)
         if (student) {
             await student.delete()
-            response.status(200).json({
-                message: 'Successfully deleted this student.',
-                id
-            })
+            response.status(200).json(id)
         } else {
-            response.status(200).json({
-                message: 'Student not found.',
-                id
-            })
+            response.status(404).json(id)
         }
     }
 }

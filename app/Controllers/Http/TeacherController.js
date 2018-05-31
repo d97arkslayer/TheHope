@@ -6,7 +6,6 @@ class TeacherController {
     async index({ response }) {
         //const persons = await Person.query().with('teacher').fetch()
         const teachers = await Person.query().has('teacher').fetch()
-            //console.log(teachers)
         response.status(200).json(teachers)
     }
 
@@ -26,7 +25,6 @@ class TeacherController {
 
         const teacher = await Teacher.find(id)
         const person_id = teacher.person_id
-            //console.log(person_id)
         const person = await Person.find(person_id)
         response.status(200).json(person)
 
@@ -43,15 +41,11 @@ class TeacherController {
             person.name = name
             person.lastName = lastName
             person.documentNumber = documentNumber
-            person.email = email
-                //person.password = password
             await person.save()
 
             response.status(200).json(person)
         } else {
-            response.status(404).json({
-                message: 'Teacher not found'
-            })
+            response.status(404).json(id)
         }
     }
 
@@ -64,13 +58,9 @@ class TeacherController {
             const person = await Person.find(person_id)
             await teacher.delete()
             await person.delete()
-            response.status(200).json({
-                message: 'teacher deleted'
-            })
+            response.status(200).json(id)
         } else {
-            response.status(404).json({
-                message: 'teacher not found'
-            })
+            response.status(404).json({ id })
         }
     }
 }

@@ -4,10 +4,7 @@ const SubjectGrade = use('App/Models/SubjectGrade')
 class LessonController {
     async index({ response }) {
         const lessons = await Lesson.all()
-        response.status(200).json({
-            message: 'Thera are your lessons',
-            data: lessons
-        })
+        response.status(200).json(lessons)
     }
 
     async create() {}
@@ -19,10 +16,7 @@ class LessonController {
             const lesson = await Lesson.create({ subject_grades_id, description })
             const subject = await subjectGrade.subject().fetch()
             const grade = await subjectGrade.grade().fetch()
-            response.status(201).json({
-                message: 'New lesson created for subject ' + subject.name + ' in the grade ' + grade.name,
-                data: lesson
-            })
+            response.status(201).json(lesson)
         }
     }
 
@@ -32,10 +26,7 @@ class LessonController {
             const subjectGrade = await SubjectGrade.find(lesson.subject_grades_id)
             const subject = await subjectGrade.subject().fetch()
             const grade = await subjectGrade.grade().fetch()
-            response.status(201).json({
-                message: 'This lesson for the subject ' + subject.name + ' in the grade ' + grade.name,
-                data: lesson.description
-            })
+            response.status(201).json(lesson)
         }
     }
 
@@ -47,15 +38,9 @@ class LessonController {
         const lesson = await Lesson.find(id)
         if (lesson) {
             await lesson.delete()
-            response.status(200).json({
-                message: 'Successfully deleted this lesson.',
-                id
-            })
+            response.status(200).json(id)
         } else {
-            response.status(200).json({
-                message: 'Lesson not found.',
-                id
-            })
+            response.status(404).json(id)
         }
     }
 }
