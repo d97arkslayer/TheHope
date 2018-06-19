@@ -9,6 +9,9 @@ class Course extends Model {
     grade() {
         return this.belongsTo('App/Models/Grade')
     }
+    students() {
+        return this.hasMany('App/Models/Grade')
+    }
 }
 
 module.exports = Course
