@@ -9,7 +9,7 @@ class TaskStudentSchema extends Schema {
             table.integer('student_id').unsigned().notNullable()
             table.foreign('student_id').references('students.id').onDelete('CASCADE')
             table.integer('task_id', 10).notNullable()
-            table.boolean('do').default(false)
+            table.boolean('done').default(false)
             table.string('path', 120)
             table.timestamps()
         })
