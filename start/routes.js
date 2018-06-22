@@ -40,6 +40,8 @@ Route.resource('classes', 'ClassController').apiOnly()
 Route.resource('tasks', 'TaskController').apiOnly()
     //Students
 Route.resource('students', 'StudentController').apiOnly()
+    //TaskStudents
+Route.resource('taskStudents', 'TaskStudentController').apiOnly()
     /*
     Route.get('Teachers', 'TeacherController.index')
     Route.get('Teachers/:id', 'TeacherController.show')
