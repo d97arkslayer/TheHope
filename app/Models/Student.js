@@ -9,6 +9,9 @@ class Student extends Model {
     course() {
         return this.belongsTo('App/Models/Course')
     }
+    taskStudent() {
+        return this.hasMany('App/Models/TaskStudent')
+    }
 }
 
 module.exports = Student
