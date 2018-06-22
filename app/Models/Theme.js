@@ -2,10 +2,10 @@
 
 const Model = use('Model')
 
-class Lesson extends Model {
+class Theme extends Model {
     subjectGrade() {
         return this.belongsTo('App/Models/SubjectGrade')
     }
 }
 
-module.exports = Lesson
+module.exports = Theme

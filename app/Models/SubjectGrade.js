@@ -9,8 +9,8 @@ class SubjectGrade extends Model {
     classes() {
         return this.hasMany('App/Models/Class')
     }
-    lessons() {
-        return this.hasMany('App/Models/Lesson')
+    themes() {
+        return this.hasMany('App/Models/Theme')
     }
     grade() {
         return this.belongsTo('App/Models/Grade')

@@ -2,9 +2,9 @@
 
 const Schema = use('Schema')
 
-class LessonSchema extends Schema {
+class ThemeSchema extends Schema {
     up() {
-        this.create('lessons', (table) => {
+        this.create('themes', (table) => {
             table.increments()
             table.integer('subject_grades_id').unsigned()
             table.foreign('subject_grades_id').references('subject_grades.id').onDelete('CASCADE')
@@ -14,8 +14,8 @@ class LessonSchema extends Schema {
     }
 
     down() {
-        this.drop('lessons')
+        this.drop('themes')
     }
 }
 
-module.exports = LessonSchema
+module.exports = ThemeSchema

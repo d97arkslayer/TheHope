@@ -33,7 +33,7 @@ Route.resource('subjects', 'SubjectController').apiOnly()
     //Subject for grade
 Route.resource('subjectGrades', 'SubjectGradeController').apiOnly()
     //Lessons
-Route.resource('lessons', 'LessonController').apiOnly()
+Route.resource('themes', 'ThemeController').apiOnly()
     //Classes
 Route.resource('classes', 'ClassController').apiOnly()
     //Tasks
