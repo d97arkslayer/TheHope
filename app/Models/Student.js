@@ -13,5 +13,4 @@ class Student extends Model {
         return this.hasMany('App/Models/TaskStudent')
     }
 }
-
 module.exports = Student
