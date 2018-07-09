@@ -11,7 +11,7 @@ class ThemeController {
      * GET themes
      */
     async index({ response }) {
-        const themes = await Themes.all()
+        const themes = await Theme.all()
         response.status(200).json(themes)
     }
 

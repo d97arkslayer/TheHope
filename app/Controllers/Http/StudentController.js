@@ -10,10 +10,10 @@ class StudentController {
     async create() {}
 
     async store({ request, response }) {
-        const { name, lastName, documentNumber, email, password, curse_id } = request.post()
+        const { name, lastName, documentNumber, email, password, course_id } = request.post()
         const person = await Person.create({ name, lastName, documentNumber, email, password })
         const person_id = person.id
-        const student = await Student.create({ person_id, curse_id })
+        const student = await Student.create({ person_id, course_id })
         response.status(201).json(student)
     }
 

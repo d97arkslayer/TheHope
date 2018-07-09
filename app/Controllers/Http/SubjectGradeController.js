@@ -17,7 +17,7 @@ class SubjectGradeController {
             const subject = Subject.find(subject_id)
             if (subject) {
                 const subjectGrade = await SubjectGrade.create({ grade_id, subject_id })
-                response.status(201).json(data)
+                response.status(201).json(subject)
             }
         }
     }
