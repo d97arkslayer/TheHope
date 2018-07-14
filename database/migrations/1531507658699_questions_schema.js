@@ -2,20 +2,21 @@
 
 const Schema = use('Schema')
 
-class WordSchema extends Schema {
+class QuestionsSchema extends Schema {
     up() {
-        this.create('words', (table) => {
+        this.create('questions', (table) => {
             table.increments()
-            table.string('word')
             table.integer('subject_grades_id').unsigned()
             table.foreign('subject_grades_id').references('subject_grades.id').onDelete('CASCADE')
+            table.string('question')
+            table.string('answer')
             table.timestamps()
         })
     }
 
     down() {
-        this.drop('words')
+        this.drop('questions')
     }
 }
 
-module.exports = WordSchema
+module.exports = QuestionsSchema

@@ -15,6 +15,9 @@ class SubjectGrade extends Model {
     grade() {
         return this.belongsTo('App/Models/Grade')
     }
+    questions() {
+        return this.hasMany('App/Models/Question')
+    }
     static get table() {
         return 'subject_grades'
     }
