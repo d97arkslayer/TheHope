@@ -23,7 +23,9 @@ class QuestionController {
      * Create/save a new question.
      * POST questions
      */
-    async store({ request, response }) {}
+    async store({ request, response }) {
+        const {}
+    }
 
     /**
      * Display a single question.
