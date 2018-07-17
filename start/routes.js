@@ -42,6 +42,8 @@ Route.resource('tasks', 'TaskController').apiOnly()
 Route.resource('students', 'StudentController').apiOnly()
     //TaskStudents
 Route.resource('taskStudents', 'TaskStudentController').apiOnly()
+    //Ruta para consumir preguntas
+Route.resource('questions', 'QuestionController').apiOnly()
     /*
     Route.get('Teachers', 'TeacherController.index')
     Route.get('Teachers/:id', 'TeacherController.show')
